@@ -1,38 +1,60 @@
-# Projeto AstroMatch
+# AstroMatch
 
-# 📄 Sobre
+A dating-app clone built with React, backed by a REST API that serves the profiles and records
+each match.
 
-O projeto é baseado em um dating app. Foi utilizada uma integração com API que contém as informações de cada perfil.
-Eu quis trazer para esse projeto uma estilizacao feita com biblioteca chakra. Ao acessar o AstroMatch, o usuário poderá dar like ou dislike nos perfis que forem apresentados. Ao dar like, aparecerá um toast com o aviso de que "deu match" caso o like for retribuido. Ao dar dislike, a imagem da pessoa deslizará para a esquerda e ao dar like a imagem da pessoa deslizará para a direita. O usuário pode clicar no ícone para ir para a página de matches, onde encontrará todos todos os matches. 
+**Live demo:** https://instinctive-aunt.surge.sh/
 
-# 🔗 Link para acessar
+## About
 
-[keen-interest.surge.sh/](https://instinctive-aunt.surge.sh/)
+AstroMatch presents one profile at a time. The user swipes through them by choosing to like or
+pass:
 
-# 🛠 Tecnologias
+- Liking a profile slides the card to the right; passing slides it to the left.
+- When a like is reciprocated, a toast notification announces the match.
+- The header icon switches to the matches list, which shows everyone matched so far.
+- The matches list can be cleared, which resets the deck on the server.
 
-- [ReactJS](https://pt-br.reactjs.org/)
+The UI is composed with Chakra UI for the interactive pieces (buttons, toasts, images) and
+styled-components for the layout shell.
+
+## Tech stack
+
+- [React](https://react.dev/)
+- [Chakra UI](https://chakra-ui.com/)
 - [Styled Components](https://styled-components.com/docs)
 - [Axios](https://axios-http.com/docs/intro)
-- [React-Router-Dom](https://v5.reactrouter.com/web/guides/quick-start)
 
+## API
 
-# 📲 Imagens Mobile
+Profiles, matches and the reset action come from the AstroMatch API:
 
-<img width="379" alt="Screen Shot 2022-09-01 at 4 59 06 PM" src="https://user-images.githubusercontent.com/104601906/188015078-d88b8f11-cbfe-4ef3-b32c-91a1cf2c2ae1.png">
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET` | `/person` | Fetch the next profile to display |
+| `POST` | `/choose-person` | Record a like or a pass, and report whether it was a match |
+| `GET` | `/matches` | List every profile matched so far |
+| `PUT` | `/clear` | Clear the match list and reset the deck |
 
-<img width="376" alt="Screen Shot 2022-09-01 at 4 59 22 PM" src="https://user-images.githubusercontent.com/104601906/188015093-29f4a265-480c-4efb-b66d-c97ad642bf51.png">
+## Running it locally
 
+Requires Node.js.
 
+```bash
+git clone https://github.com/Brunomon2812/AstroMatch.git
+cd AstroMatch
+npm install
+npm start
+```
 
-# 👩‍💻 Desenvolvedor
+The app runs on http://localhost:3000 by default.
 
-- Bruno Monteiro
+## Screenshots
 
+<img width="379" alt="Profile screen with like and pass buttons" src="https://user-images.githubusercontent.com/104601906/188015078-d88b8f11-cbfe-4ef3-b32c-91a1cf2c2ae1.png">
 
+<img width="376" alt="Matches list screen" src="https://user-images.githubusercontent.com/104601906/188015093-29f4a265-480c-4efb-b66d-c97ad642bf51.png">
 
+## Author
 
-
-
-
-
+Bruno Monteiro — [GitHub](https://github.com/Brunomon2812) · [LinkedIn](https://www.linkedin.com/in/brunoarmonteiro/)
